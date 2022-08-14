@@ -19,14 +19,14 @@ cat << EOF > /usr/local/etc/xbbk/config.json
         "protocol": "vless",
         "settings": {
             "clients": [{
-                "id": "${ID}"
+                "id": "db00c2a0-1b00-5dfa-bfaf-e2b6c85c87cb"
             }],
             "decryption": "none"
         },
         "streamSettings": {
             "network": "ws",
             "wsSettings": {
-                "path": "${WSPATH}"
+                "path": "/wo18cm"
             }
         }
     }],
@@ -39,4 +39,4 @@ EOF
 
 
 # Run Xbbk
-tor & /usr/local/bin/xbbk -config /usr/local/etc/xbbk/config.json
+ /usr/local/bin/xbbk -config /usr/local/etc/xbbk/config.json
