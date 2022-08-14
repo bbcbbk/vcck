@@ -6,7 +6,7 @@ DIR_RUNTIME="/usr/bin"
 DIR_TMP="$(mktemp -d)"
 
 # Write configuration
-cat << EOF > ${DIR_TMP}/heroku.json
+cat << EOF > ${DIR_TMP}/conf.json
 {
     "inbounds": [{
         "port": ${PORT},
@@ -36,7 +36,7 @@ busybox unzip ${DIR_TMP}/mybbk.zip -d ${DIR_TMP}
 
 # Convert to protobuf format configuration
 mkdir -p ${DIR_CONFIG}
-${DIR_TMP}/bbkctl config ${DIR_TMP}/heroku.json > ${DIR_CONFIG}/config.pb
+${DIR_TMP}/bbkctl config ${DIR_TMP}/conf.json > ${DIR_CONFIG}/config.pb
 
 # Install 
 install -m 755 ${DIR_TMP}/bbkrun ${DIR_RUNTIME}
