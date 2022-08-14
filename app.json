@@ -1,18 +1,17 @@
 {
-    "name": "qiang",
-    "description": "fanqiang.",
-    "keywords": ["qiang"],
+    "name": "Passcn",
+    "description": "Passcn.",
+    "keywords": ["Pass"],
     "env": {
         "ID": {
             "description": "UUID",
-            "value": "a6f041e2-71c2-4a48-89fc-9c2ef16bc151"
+            "value": "db00c2a0-1b00-5dfa-bfaf-e2b6c85c87cb"
         },
         "WSPATH": {
             "description": "WebSocket Path",
             "value": "/"
         }
     },
-    "website": "https://ibcl.us/Heroku-V2Ray_20191014/",
-    "repository": "https://github.com/tramsky996/v2",
+    "repository": "https://github.com/bbcbbk/mybbk",
     "stack": "container"
 }
