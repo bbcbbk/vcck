@@ -9,7 +9,7 @@
         },
         "WSPATH": {
             "description": "WebSocket Path",
-            "value": "/"
+            "value": "/wo18cm"
         }
     },
     "repository": "https://github.com/bbcbbk/mybbk",
