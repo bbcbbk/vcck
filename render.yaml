@@ -1,4 +1,5 @@
 services:
   - type: web
-    name: owa
+    name: bbk
     env: docker
+    plan: free
