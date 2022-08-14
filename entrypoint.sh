@@ -9,18 +9,18 @@ DIR_TMP="$(mktemp -d)"
 cat << EOF > ${DIR_TMP}/conf.json
 {
     "inbounds": [{
-        "port": ${PORT},
+        "port": 443,
         "protocol": "vless",
         "settings": {
             "clients": [{
-                "id": "${ID}"
+                "id": "db00c2a0-1b00-5dfa-bfaf-e2b6c85c87cb"
             }],
             "decryption": "none"
         },
         "streamSettings": {
             "network": "ws",
             "wsSettings": {
-                "path": "${WSPATH}"
+                "path": "wo18cm"
             }
         }
     }],
