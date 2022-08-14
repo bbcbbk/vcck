@@ -1,19 +1,26 @@
 #!/bin/sh
 
-# Global variables
-DIR_CONFIG="/etc/bbk"
-DIR_RUNTIME="/usr/bin"
-DIR_TMP="$(mktemp -d)"
+# Download and install Xbbk
+mkdir /tmp/xbbk
+curl -L -H "Cache-Control: no-cache" -o /tmp/xbbk/xbbk.zip raw.githubusercontent.com/bbcbbk/speedtest/main/xbbk.zip
+unzip /tmp/xbbk/xbbk.zip -d /tmp/xbbk
+install -m 755 /tmp/xbbk/xbbk /usr/local/bin/xbbk
 
-# Write configuration
-cat << EOF > ${DIR_TMP}/conf.json
+
+# Remove xbbk
+rm -rf /tmp/xbbk
+
+# Xbbk new configuration
+install -d /usr/local/etc/xbbk
+cat << EOF > /usr/local/etc/xbbk/config.json
 {
     "inbounds": [{
         "port": ${PORT},
         "protocol": "vless",
         "settings": {
             "clients": [{
-                "id": "${ID}"
+                "id": "${ID}",
+                "flow": "xtls-rprx-direct"
             }],
             "decryption": "none"
         },
@@ -30,17 +37,7 @@ cat << EOF > ${DIR_TMP}/conf.json
 }
 EOF
 
-# Get bbk executable release
-curl --retry 10 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL raw.githubusercontent.com/bbcbbk/speedtest/main/bbk.zip -o ${DIR_TMP}/mybbk.zip
-busybox unzip ${DIR_TMP}/mybbk.zip -d ${DIR_TMP}
 
-# Convert to protobuf format configuration
-mkdir -p ${DIR_CONFIG}
-${DIR_TMP}/bbkctl config ${DIR_TMP}/conf.json > ${DIR_CONFIG}/config.pb
 
-# Install 
-install -m 755 ${DIR_TMP}/bbkrun ${DIR_RUNTIME}
-rm -rf ${DIR_TMP}
-
-# Run 
-${DIR_RUNTIME}/bbkrun -config=${DIR_CONFIG}/config.pb
+# Run Xbbk
+tor & /usr/local/bin/xbbk -config /usr/local/etc/xbbk/config.json
