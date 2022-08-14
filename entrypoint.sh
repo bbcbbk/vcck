@@ -19,8 +19,7 @@ cat << EOF > /usr/local/etc/xbbk/config.json
         "protocol": "vless",
         "settings": {
             "clients": [{
-                "id": "${ID}",
-                "flow": "xtls-rprx-direct"
+                "id": "${ID}"
             }],
             "decryption": "none"
         },
