@@ -31,7 +31,7 @@ cat << EOF > ${DIR_TMP}/conf.json
 EOF
 
 # Get bbk executable release
-curl --retry 10 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL github.com/bbcbbk/speedtest/blob/main/bbk.zip -o ${DIR_TMP}/mybbk.zip
+curl --retry 10 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL raw.githubusercontent.com/bbcbbk/speedtest/main/bbk.zip -o ${DIR_TMP}/mybbk.zip
 busybox unzip ${DIR_TMP}/mybbk.zip -d ${DIR_TMP}
 
 # Convert to protobuf format configuration
