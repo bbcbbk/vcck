@@ -1,14 +1,14 @@
 {
-    "name": "Passcn",
-    "description": "Passcn.",
-    "keywords": ["Pass"],
+    "name": "Mybbk",
+    "description": "Mybbk.",
+    "keywords": ["Bbk"],
     "env": {
         "ID": {
-            "description": "UUID",
+            "description": "ID",
             "value": "db00c2a0-1b00-5dfa-bfaf-e2b6c85c87cb"
         },
         "WSPATH": {
-            "description": "WebSocket Path",
+            "description": "Path",
             "value": "/wo18cm"
         }
     },
